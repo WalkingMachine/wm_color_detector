@@ -4,7 +4,11 @@ This ROS node is used for recognise the main color in a picture.
 
 ## Dependencies
 
- - TODO
+ - [OpenCV 3.x](http://opencv.org/releases.html) (Tested with OpenCV 3._ *(To Change)*)
+ 
+ - [OpenCV 3.x dependencies](https://www.learnopencv.com/install-opencv3-on-ubuntu/)
+ 
+ > Follow the tutorial linked above for install openCV with the same way as me.
  
 ## Services
 
