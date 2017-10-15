@@ -1,21 +1,19 @@
 #!/usr/bin/env python
 
-# Values for colors :
-# 0    black
-# 1    grey
-# 2    white
-# 3    red
-# 4    yellow
-# 5    green
-# 6    cyan
-# 7    blue
-# 8    magenta
-
 # Imports for ROS
 # import rospy
 
+import roslib
+roslib.load_manifest('my_package')
+import sys
+import rospy
+import cv
+from std_msgs.msg import String
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge, CvBridgeError
+
 from colorsys import rgb_to_hsv
-from PIL import Image
+# from PIL import Image
 
 # Declaration of constants
 nbr_of_colors = 9
@@ -100,13 +98,8 @@ def get_mean_color(_pixels, _width, _height):
     return color_list
 
 
-# Read image
-im = Image.open('red.png')
-pix = im.load()
-width, height = im.size
-
-color_list = get_mean_color(pix, width, height)
-
-for color_id in range(0, nbr_of_colors):
-    print( "Color " + color_name[color_id] + ":  \t" + str(color_list[color_id]) + "%")
+# color_list = get_mean_color(pix, width, height)
+#
+# for color_id in range(0, nbr_of_colors):
+#     print( "Color " + color_name[color_id] + ":  \t" + str(color_list[color_id]) + "%")
 
