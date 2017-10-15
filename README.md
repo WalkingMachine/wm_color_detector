@@ -2,6 +2,22 @@
 
 This ROS node is used for recognise the main color in a picture.
 
+## How to
+
+### List of colors availables
+
+| **Color ID** | **Color Name** |
+|:------------:|:--------------:|
+| 0            | ´Black´        |
+| 1            | ´Grey´         |
+| 2            | ´White´        |
+| 3            | ´Red´          |
+| 4            | ´Yellow´       |
+| 5            | ´Green´        |
+| 6            | ´Cyan´         |
+| 7            | ´Blue´         |
+| 8            | ´Magenta´      |
+
 ## Dependencies
 
  - [OpenCV 3.x](http://opencv.org/releases.html) (Tested with OpenCV 3._ *(To Change)*)
