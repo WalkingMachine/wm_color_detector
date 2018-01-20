@@ -14,7 +14,10 @@ find_package(message_generation REQUIRED CATKIN_DEPENDS message_runtime)
 find_package(OpenCV)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-generate_messages( DEPENDENCIES std_msgs )
+generate_messages(
+        DEPENDENCIES
+        std_msgs
+)
 
 set(CMAKE_CXX_STANDARD 11)
 
