@@ -40,22 +40,12 @@ set(CMAKE_CXX_STANDARD 11)
 ## Your package locations should be listed before other locations
 include_directories(${catkin_INCLUDE_DIRS})
 
-add_executable(test_node
+add_executable(ColorationAnalyser
         src/ColorationAnalyser.cpp
         src/Color_Analyzer.cpp
 )
 
-add_executable(test_node_read
-        src/test2.cpp
-        src/Color_Analyzer.cpp
-)
-
-target_link_libraries(test_node
-        ${catkin_LIBRARIES}
-        ${OpenCV_LIBRARIES}
-)
-
-target_link_libraries(test_node_read
+target_link_libraries(ColorationAnalyser
         ${catkin_LIBRARIES}
         ${OpenCV_LIBRARIES}
 )
