@@ -11,14 +11,10 @@
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
 
-
-
 // Include for print
 #include <sstream>
+#include <string.h>
 
-// Namespaces
-using namespace cv;
-using namespace std;
 
 
 //-----------------------------------------------------------------------
@@ -54,11 +50,13 @@ void PrintVersion();
 
 void LoadAnImage();
 
+std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2);
+
 T_COLOR getColorID(int hue, int saturation, int value);
 
 std::string getColorName(int color);
 
-void getColorValue(int colors[NBR_OF_COLOR], Mat image_hsv, int x1, int x2, int y1, int y2);
+void getColorValue(int colors[NBR_OF_COLOR], cv::Mat image_hsv, int x1, int x2, int y1, int y2);
 
 #endif //PROJECT_COLOR_ANALYZER_H
 
