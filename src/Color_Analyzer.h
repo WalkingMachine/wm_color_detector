@@ -22,8 +22,8 @@
 //-----------------------------------------------------------------------
 
 #define WHITE_THRESHOLD 200
-#define BLACK_THRESHOLD 50
-#define MONOCHROME_THRESHOLD 20
+#define BLACK_THRESHOLD 40
+#define MONOCHROME_THRESHOLD 30
 
 #define NBR_OF_COLOR 9
 
