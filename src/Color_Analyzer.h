@@ -22,7 +22,7 @@
 //-----------------------------------------------------------------------
 
 #define WHITE_THRESHOLD 200
-#define BLACK_THRESHOLD 15
+#define BLACK_THRESHOLD 50
 #define MONOCHROME_THRESHOLD 20
 
 #define NBR_OF_COLOR 9
@@ -47,8 +47,6 @@ enum T_COLOR{
  * Print the version of OpenCV
  */
 void PrintVersion();
-
-void LoadAnImage();
 
 std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2);
 

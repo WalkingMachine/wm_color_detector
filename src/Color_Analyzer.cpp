@@ -14,52 +14,40 @@ void PrintVersion() {
 	std::cout << "Subminor version : " << CV_SUBMINOR_VERSION << std::endl;
 }
 
-void LoadAnImage() {
-	cv::Mat image;
-
-	int colors[NBR_OF_COLOR];
-	image = cv::imread("/home/lucas/Documents/red.png", CV_LOAD_IMAGE_COLOR);   // Read the file
-
-	// Check for invalid input
-	if(! image.data ){
-		std::cout <<  "Could not open or find the image" << std::endl ;
-	}
-
-	std::cout << "Img size : " << image.cols << "x" << image.rows << std::endl;
-
-	cv::Mat image_hsv;
-
-	cv::cvtColor(image, image_hsv,CV_BGR2HSV);
-	cv::Vec3b hsv;
-	cv::Vec3b rgb;
-
-	getColorValue(colors, image_hsv, 0, 100, 0, 100);
-	int nbr_pixel = 100;
-	for(int color = 0; color < NBR_OF_COLOR; color ++){
-		std::cout << getColorName(color) << "\t: " << colors[color]/nbr_pixel << "\t" << "%" << std::endl;
-	}
-}
-
+/**
+ * Analyse the color of an image
+ * @param image 	The image matrix
+ * @param x1		first point x
+ * @param x2 		last point x
+ * @param y1 		first point y
+ * @param y2 		lastpoint y
+ * @return 			color string
+ */
 std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2){
 	int colors[NBR_OF_COLOR];
 	cv::Mat image_hsv;
-
 	std::string colour = "unknown";
 	int max = 0;
 
-	cv::cvtColor(image, image_hsv,CV_BGR2HSV);
-	cv::Vec3b hsv;
-	cv::Vec3b rgb;
-
-	getColorValue(colors, image_hsv, x1, x2, y1, y2);
-
+	//Calculate the number of pixels
 	int nbr_pixel = (x2 - x1) * (y2 - y1);
 
-	//std::cout << x1 << " " << x2 << " " << y1 << " " << y2 << "end:" << nbr_pixel << std::endl;
-
+	// If there is at least one pixel, filter the color counter
 	if(nbr_pixel > 0) {
+
+		// Convert the image from RGB to HSH
+		cv::cvtColor(image, image_hsv,CV_RGB2HSV);
+
+		// Count the number of pixels for each colors
+		getColorValue(colors, image_hsv, x1, x2, y1, y2);
+
+		// For each color, print the number of pixels and the percentage
 		for (int color = 0; color < NBR_OF_COLOR; color++) {
+
+			// Print the color
 			std::cout << getColorName(color) << "\t: " << colors[color] * 100 / nbr_pixel << "\t" << "% (" << colors[color] << ")"<< std::endl;
+
+			//Get the most important one
 			if (colors[color] > max) {
 				max = colors[color];
 				colour = getColorName(color);
@@ -70,16 +58,27 @@ std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2){
 	return colour;
 }
 
+/**
+ *
+ * @param colors 	pointer to the colors array
+ * @param image_hsv the image matrix in hsv
+ * @param x1		first point x
+ * @param x2 		last point x
+ * @param y1 		first point y
+ * @param y2 		lastpoint y
+ */
 void getColorValue(int colors[], cv::Mat image_hsv, int x1, int x2, int y1, int y2){
 	cv::Vec3b hsv;
 	int H;
 	int S;
 	int V;
 
+	// Initialise the list
 	for(int color = 0; color < NBR_OF_COLOR; color ++){
 		colors[color] = 0;
 	}
 
+	// For each pixels, read the color id
 	for(int x_pos = x1; x_pos < x2 ; x_pos++){
 		for(int y_pos = y1; y_pos < y2 ; y_pos++) {
 			hsv=image_hsv.at<cv::Vec3b>(y_pos,x_pos);
@@ -88,12 +87,19 @@ void getColorValue(int colors[], cv::Mat image_hsv, int x1, int x2, int y1, int 
 			S = hsv.val[1]; //saturation
 			V = hsv.val[2]; //value
 
+			// Increment the number of pixel of the selected color
 			colors[getColorID(H, S, V)] ++;
-//			colors[getColorID(H, S, V)] = 100;
 		}
 	}
 }
 
+/**
+ * Get the color in a pixel
+ * @param hue 			value of the hue
+ * @param saturation 	value of the saturation
+ * @param value 		value of the intensity
+ * @return 				ID of the color
+ */
 T_COLOR getColorID(int hue, int saturation, int value){
 
 	// Assume it is black
@@ -133,9 +139,15 @@ T_COLOR getColorID(int hue, int saturation, int value){
 			return RED;
 		}
 	}
+	// In all others cases
 	return BLACK;
 }
 
+/**
+ * Get the string value of a color ID
+ * @param color
+ * @return
+ */
 std::string getColorName(int color) {
 	switch(color){
 		case BLACK:
