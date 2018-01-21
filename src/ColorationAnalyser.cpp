@@ -14,7 +14,7 @@ bool get_bounding_boxes_color(wm_color_detector::AnalyseColor::Request &req, wm_
 	// TODO: Implemente try catch
 
 	// Read the image and convert then to a CV image pointer
-	cv_bridge::CvImagePtr ptr = cv_bridge::toCvCopy(req.image, sensor_msgs::image_encodings::BGR8);
+	cv_bridge::CvImagePtr ptr = cv_bridge::toCvCopy(req.image, req.image.encoding);
 
 	// Execute the analyse for all bounding boxes
 	for (auto &boundingBoxe : req.boundingBoxes) {
