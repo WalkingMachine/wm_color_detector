@@ -1,4 +1,4 @@
-int64 xmin
-int64 ymin
-int64 xmax
-int64 ymax
+int32 xmin
+int32 ymin
+int32 xmax
+int32 ymax
