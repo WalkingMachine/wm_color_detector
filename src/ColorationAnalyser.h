@@ -7,9 +7,12 @@
 
 #include "Color_Analyzer.h"
 
+#include <cv_bridge/cv_bridge.h>
+#include <std_msgs/String.h>
+
 // Includes for ROS
 #include "ros/ros.h"
-//#include "std_msgs/String.h"
-
+#include "wm_color_detector/AnalyseColor.h"
+#include "wm_color_detector/BoundingBox.h"
 
 #endif //PROJECT_TEST_H
