@@ -8,15 +8,15 @@ This ROS node is used to recognise the dominant color of a picture.
 
 | **Color ID** | **Color Name** |
 |:------------:|:--------------:|
-| 0            | ´Black´        |
-| 1            | ´Grey´         |
-| 2            | ´White´        |
-| 3            | ´Red´          |
-| 4            | ´Yellow´       |
-| 5            | ´Green´        |
-| 6            | ´Cyan´         |
-| 7            | ´Blue´         |
-| 8            | ´Magenta´      |
+| 0            | Black          |
+| 1            | Grey           |
+| 2            | White          |
+| 3            | Red            |
+| 4            | Yellow         |
+| 5            | Green          |
+| 6            | Cyan           |
+| 7            | Blue           |
+| 8            | Magenta        |
 
 ## Dependencies
 
@@ -28,12 +28,18 @@ This ROS node is used to recognise the dominant color of a picture.
  
 ## Services
 
-### `recognise_color`
+### `get_bounding_boxes_color`
 
- - **@param** `image` The input should be formated as an image message.
+ - **@req** :
 
- - **@return** Return the color of the input. The ouput is a ´std::string message´ and contain the name of the color.
+ `sensor_msgs/Image image` : The image containing the bound boxes.
+ 
+ `BoundingBox[] boundingBoxes` : The bounding boxes.
+
+- **@res** :
+
+`Coloration[] colors` : The color of each boxes.
 
 ## Nodes
 
- - TODO
+ - `wm_color_detector/ColorationAnalyser`
