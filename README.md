@@ -25,7 +25,11 @@ This ROS node is used to recognise the dominant color of a picture.
  - [OpenCV 3.x dependencies](https://www.learnopencv.com/install-opencv3-on-ubuntu/)
  
  > Follow the tutorial linked above to install openCV the same way as me.
- 
+
+## Nodes
+
+ - `wm_color_detector/ColorationAnalyser` : The node which advertise the service.
+
 ## Services
 
 ### `get_bounding_boxes_color`
@@ -39,7 +43,17 @@ This ROS node is used to recognise the dominant color of a picture.
 - **@res** :
 
 `Coloration[] colors` : The color of each boxes.
+ 
+## Messages
 
-## Nodes
+### `Coloration`
 
- - `wm_color_detector/ColorationAnalyser`
+ - `string color`
+ - `int32 colorID`
+
+### `BoundingBox`
+
+ - `int32 xmin`
+ - `int32 ymin`
+ - `int32 xmax`
+ - `int32 xymax`
