@@ -102,6 +102,7 @@ void getColorValue(int colors[], cv::Mat image_hsv, int x1, int x2, int y1, int 
  */
 T_COLOR getColorID(int hue, int saturation, int value){
 
+	//std::cout << value << std::endl;
 	// Assume it is black
 	if(value < BLACK_THRESHOLD){
 		return BLACK;
@@ -123,11 +124,13 @@ T_COLOR getColorID(int hue, int saturation, int value){
 	else{
 
 		// For each colors
-		if((0 <= hue) && (hue <= 30)){
+		if ((0 < hue) && (hue <= 10)){
 			return RED;
-		}else if ((30 < hue) && (hue <= 90)){
+		}else if ((10 < hue) && (hue <= 30)){
+			return ORANGE;
+		}else if ((30 < hue) && (hue <= 60)){
 			return YELLOW;
-		}else if ((90 < hue) && (hue <= 150)){
+		}else if ((60 < hue) && (hue <= 150)){
 			return GREEN;
 		}else if ((150 < hue) && (hue <= 210)){
 			return CYAN;
@@ -158,6 +161,8 @@ std::string getColorName(int color) {
 			return  "White";
 		case RED:
 			return  "Red";
+		case ORANGE:
+			return  "Orange";
 		case YELLOW:
 			return  "Yellow";
 		case GREEN:
