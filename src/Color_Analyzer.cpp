@@ -102,7 +102,6 @@ void getColorValue(int colors[], cv::Mat image_hsv, int x1, int x2, int y1, int 
  */
 T_COLOR getColorID(int hue, int saturation, int value){
 
-	//std::cout << value << std::endl;
 	// Assume it is black
 	if(value < BLACK_THRESHOLD){
 		return BLACK;
