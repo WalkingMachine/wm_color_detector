@@ -10,7 +10,9 @@ find_package(Threads REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
         roscpp
         sensor_msgs
-        cv_bridge)
+        cv_bridge
+        sara_msgs
+)
 find_package(message_generation REQUIRED CATKIN_DEPENDS message_runtime)
 
 ## Find OpenCV libraries
@@ -20,7 +22,6 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 add_message_files(
         FILES
         Coloration.msg
-        BoundingBox.msg
 )
 
 add_service_files(
@@ -32,6 +33,7 @@ generate_messages(
         DEPENDENCIES
         std_msgs
         sensor_msgs
+        sara_msgs
 )
 
 set(CMAKE_CXX_STANDARD 11)
