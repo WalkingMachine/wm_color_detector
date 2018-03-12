@@ -178,3 +178,4 @@ std::string getColorName(int color) {
 			return  "Unknown";
 	}
 }
+}
