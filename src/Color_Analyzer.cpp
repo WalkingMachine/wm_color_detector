@@ -124,54 +124,57 @@ namespace wm_color_analyser{
 			// Assume it is chromatic
 		else{
 
-			// For each colors
-			if((0 <= hue) && (hue <= 30)){
-				return RED;
-			}else if ((30 < hue) && (hue <= 90)){
-				return YELLOW;
-			}else if ((90 < hue) && (hue <= 150)){
-				return GREEN;
-			}else if ((150 < hue) && (hue <= 210)){
-				return CYAN;
-			}else if ((210 < hue) && (hue <= 270)){
-				return BLUE;
-			}else if ((270 < hue) && (hue <= 330)){
-				return MAGENTA;
-			}else if ((330 < hue) && (hue <= 360)){
-				return RED;
-			}
+		// For each colors
+		if ((0 < hue) && (hue <= 10)){
+			return RED;
+		}else if ((10 < hue) && (hue <= 30)){
+			return ORANGE;
+		}else if ((30 < hue) && (hue <= 60)){
+			return YELLOW;
+		}else if ((60 < hue) && (hue <= 150)){
+			return GREEN;
+		}else if ((150 < hue) && (hue <= 210)){
+			return CYAN;
+		}else if ((210 < hue) && (hue <= 270)){
+			return BLUE;
+		}else if ((270 < hue) && (hue <= 330)){
+			return MAGENTA;
+		}else if ((330 < hue) && (hue <= 360)){
+			return RED;
 		}
-		// In all others cases
-		return BLACK;
 	}
+	// In all others cases
+	return BLACK;
+}
 
-	/**
-	 * Get the string value of a color ID
-	 * @param color
-	 * @return
-	 */
-	std::string getColorName(int color) {
-		switch(color){
-			case BLACK:
-				return  "Black";
-			case GREY:
-				return  "Grey";
-			case WHITE:
-				return  "White";
-			case RED:
-				return  "Red";
-			case YELLOW:
-				return  "Yellow";
-			case GREEN:
-				return  "Green";
-			case CYAN:
-				return  "Cyan";
-			case BLUE:
-				return  "Blue";
-			case MAGENTA:
-				return  "Magenta";
-			default:
-				return  "Unknown";
-		}
+/**
+ * Get the string value of a color ID
+ * @param color
+ * @return
+ */
+std::string getColorName(int color) {
+	switch(color){
+		case BLACK:
+			return  "Black";
+		case GREY:
+			return  "Grey";
+		case WHITE:
+			return  "White";
+		case RED:
+			return  "Red";
+		case ORANGE:
+			return  "Orange";
+		case YELLOW:
+			return  "Yellow";
+		case GREEN:
+			return  "Green";
+		case CYAN:
+			return  "Cyan";
+		case BLUE:
+			return  "Blue";
+		case MAGENTA:
+			return  "Magenta";
+		default:
+			return  "Unknown";
 	}
 }

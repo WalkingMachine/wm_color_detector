@@ -1,4 +1,4 @@
 sensor_msgs/Image image
-BoundingBox[] boundingBoxes
+sara_msgs/BoundingBox2D[] boundingBoxes
 ---
 Coloration[] colors

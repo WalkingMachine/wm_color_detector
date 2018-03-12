@@ -21,11 +21,13 @@
 
 #define NBR_OF_COLOR 9
 
+#define NBR_OF_COLOR 10
 enum T_COLOR{
 	BLACK,
 	GREY,
 	WHITE,
 	RED,
+	ORANGE,
 	YELLOW,
 	GREEN,
 	CYAN,
