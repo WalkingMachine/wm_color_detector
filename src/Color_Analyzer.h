@@ -15,16 +15,11 @@
 #include <sstream>
 #include <string.h>
 
-
-
 //-----------------------------------------------------------------------
 //------------------------------- Colors --------------------------------
 //-----------------------------------------------------------------------
 
-#define WHITE_THRESHOLD 200
-#define BLACK_THRESHOLD 40
-#define MONOCHROME_THRESHOLD 30
-
+#define NBR_OF_COLOR 9
 
 #define NBR_OF_COLOR 10
 enum T_COLOR{
@@ -44,18 +39,19 @@ enum T_COLOR{
 //------------------------------ Functions ------------------------------
 //-----------------------------------------------------------------------
 
-/**
- * Print the version of OpenCV
- */
-void PrintVersion();
 
-std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2);
 
-T_COLOR getColorID(int hue, int saturation, int value);
+namespace wm_color_analyser{
+	void PrintVersion();
 
-std::string getColorName(int color);
+	std::string LoadAnImageFromCVMat(cv::Mat image, int x1, int x2, int y1, int y2);
 
-void getColorValue(int colors[NBR_OF_COLOR], cv::Mat image_hsv, int x1, int x2, int y1, int y2);
+	T_COLOR getColorID(int hue, int saturation, int value);
+
+	std::string getColorName(int color);
+
+	void getColorValue(int colors[NBR_OF_COLOR], cv::Mat image_hsv, int x1, int x2, int y1, int y2);
+}
 
 #endif //PROJECT_COLOR_ANALYZER_H
 
