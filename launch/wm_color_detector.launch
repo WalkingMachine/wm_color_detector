@@ -1,0 +1,3 @@
+<launch>
+    <node name="wm_color_detector" pkg="wm_color_detector" type="ColorationAnalyser" />
+</launch>
