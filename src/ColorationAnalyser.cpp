@@ -35,6 +35,13 @@ int main(int argc, char **argv) {
 	ros::init(argc, argv, "wm_coloration_analyser");
 	ros::NodeHandle n;
 
+	int white_threshold, black_threshold, monochrome_threshold;
+
+	n.param<int>("white_threshold", white_threshold, 200);
+	n.param<int>("black_threshold", black_threshold, 40);
+	n.param<int>("monochrome_threshold", monochrome_threshold, 30);
+
+
 	// Advertise the service
 	ros::ServiceServer service = n.advertiseService("get_bounding_boxes_color", get_bounding_boxes_color);
 

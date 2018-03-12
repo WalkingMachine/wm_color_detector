@@ -21,10 +21,6 @@
 //------------------------------- Colors --------------------------------
 //-----------------------------------------------------------------------
 
-#define WHITE_THRESHOLD 200
-#define BLACK_THRESHOLD 40
-#define MONOCHROME_THRESHOLD 30
-
 #define NBR_OF_COLOR 9
 
 enum T_COLOR{
