@@ -1,0 +1,3 @@
+white_threshold: 200
+black_threshold: 10
+monochrome_threshold: 20

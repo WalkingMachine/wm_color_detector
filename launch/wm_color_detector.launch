@@ -1,3 +1,4 @@
 <launch>
+    <rosparam file="$(find wm_color_detector)/config/color_detector_params.yaml" command="load" />
     <node name="wm_color_detector" pkg="wm_color_detector" type="ColorationAnalyser" />
 </launch>
