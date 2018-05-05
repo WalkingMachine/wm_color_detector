@@ -24,7 +24,7 @@ namespace wm_color_analyser{
 		cv_bridge::CvImagePtr ptr = cv_bridge::toCvCopy(req.image, req.image.encoding);
 
 		// Execute the analyse for all bounding boxes
-		for (auto &boundingBoxe : req.boundingBoxes) {
+		for (auto &boundingBoxe : req.boundingBoxes.boundingBoxes) {
 			// Create a color message
 			wm_color_detector::Coloration color;
 

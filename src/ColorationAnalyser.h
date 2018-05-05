@@ -13,7 +13,7 @@
 // Includes for ROS
 #include "ros/ros.h"
 #include "wm_color_detector/AnalyseColor.h"
-#include "sara_msgs/BoundingBox2D.h"
+#include "sara_msgs/BoundingBoxes2D.h"
 
 
 namespace wm_color_analyser{
