@@ -37,7 +37,7 @@ generate_messages(
 )
 
 catkin_package(
-        LIBRARIES wm_color_detector
+        LIBRARIES ColorationAnalyser
         CATKIN_DEPENDS roscpp message_runtime sara_msgs sara_msgs
 )
 
